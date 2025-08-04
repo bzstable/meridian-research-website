@@ -400,13 +400,96 @@ document.addEventListener('DOMContentLoaded', function() {
             animationOverlay.classList.add('active');
         }
         
-        // Show the first word after a short delay
+        animationsStarted = true;
+        
+        // Start the automatic animation sequence
+        startAutomaticAnimationSequence();
+    }
+    
+    function startAutomaticAnimationSequence() {
+        // Step 0: Show first word after 1 second
         setTimeout(() => {
-            if (wordElements[0]) {
-                wordElements[0].classList.add('active');
+            if (!animationComplete && currentStep === 0) {
+                showWord(0);
+                currentStep = 1;
+                
+                // Step 1: Strike first word after 2 seconds
+                setTimeout(() => {
+                    if (!animationComplete && currentStep === 1) {
+                        strikeWord(0);
+                        currentStep = 2;
+                        
+                        // Continue with the rest of the sequence
+                        continueAnimationSequence();
+                    }
+                }, 2000);
             }
-            animationsStarted = true;
         }, 1000);
+    }
+    
+    function continueAnimationSequence() {
+        const delays = [1500, 2000, 1500, 2000, 1500, 2000, 1500, 3000, 2500, 2000, 2000]; // Delays between each step
+        
+        function executeNextStep() {
+            if (animationComplete || currentStep >= 12) return;
+            
+            const delay = delays[currentStep - 2] || 1500; // Get delay for current step
+            
+            setTimeout(() => {
+                if (!animationComplete) {
+                    switch(currentStep) {
+                        case 2: // Show word 2
+                            showWord(1);
+                            currentStep = 3;
+                            break;
+                        case 3: // Strike word 2
+                            strikeWord(1);
+                            currentStep = 4;
+                            break;
+                        case 4: // Show word 3
+                            showWord(2);
+                            currentStep = 5;
+                            break;
+                        case 5: // Strike word 3
+                            strikeWord(2);
+                            currentStep = 6;
+                            break;
+                        case 6: // Show word 4
+                            showWord(3);
+                            currentStep = 7;
+                            break;
+                        case 7: // Strike word 4
+                            strikeWord(3);
+                            currentStep = 8;
+                            break;
+                        case 8: // Show final phrase
+                            showFinalPhrase();
+                            currentStep = 9;
+                            break;
+                        case 9: // Fade out final phrase
+                            hideFinalPhrase();
+                            currentStep = 10;
+                            break;
+                        case 10: // Show logo
+                            showLogo();
+                            currentStep = 11;
+                            break;
+                        case 11: // Fade out logo and show menu
+                            fadeOutLogo();
+                            showMenuBarAndComplete();
+                            currentStep = 12;
+                            break;
+                    }
+                    
+                    // Continue to next step
+                    if (currentStep < 12) {
+                        executeNextStep();
+                    }
+                }
+            }, delay);
+        }
+        
+        executeNextStep();
     }
     
     // Initialize everything when DOM is loaded
@@ -453,37 +536,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize menu interactions
     setupMenuInteractions();
     
-    // Initialize scroll event listeners
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('wheel', onWheel, { passive: false });
+    // Initialize scroll event listeners (only active after animations complete)
+    window.addEventListener('scroll', (e) => {
+        if (animationComplete) {
+            onScroll(e);
+        }
+    }, { passive: true });
     
-    // Handle keyboard navigation
+    window.addEventListener('wheel', (e) => {
+        if (!animationComplete) {
+            e.preventDefault(); // Prevent scrolling during animations
+        } else {
+            onWheel(e);
+        }
+    }, { passive: false });
+    
+    // Handle keyboard navigation (only after animations complete)
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
-            if (!animationComplete) {
-                e.preventDefault();
-                handleScrollDown();
+            if (animationComplete) {
+                // Allow normal page scrolling after animations
+                return;
+            } else {
+                e.preventDefault(); // Prevent scrolling during animations
             }
         }
     });
     
-    // Handle touch events for mobile
+    // Handle touch events for mobile (only after animations complete)
     let touchStartY = 0;
     document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
+        if (animationComplete) {
+            touchStartY = e.touches[0].clientY;
+        }
     }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
-        if (!animationComplete) {
-            const touchEndY = e.changedTouches[0].clientY;
-            const deltaY = touchStartY - touchEndY;
-            
-            if (deltaY > 30) { // Swipe up (scroll down)
-                e.preventDefault();
-                handleScrollDown();
-            }
+        if (animationComplete) {
+            // Allow normal touch scrolling after animations
+            return;
         }
-    }, { passive: false });
+    }, { passive: true });
     
     // ===================================
     // Mobile Menu Toggle
