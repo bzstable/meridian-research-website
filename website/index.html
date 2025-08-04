@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Research</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/century-gothic" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Import Century Gothic as fallback */
+        @import url('https://fonts.cdnfonts.com/css/century-gothic');
+        
+        /* Import Dillenia UPC font */
+        @font-face {
+            font-family: 'DilleniaUPC';
+            src: url('https://db.onlinewebfonts.com/t/1c1a6b7b0b7b0b0b0b0b0b0b0b0b0b0b.eot');
+            src: url('https://db.onlinewebfonts.com/t/1c1a6b7b0b7b0b0b0b0b0b0b0b0b0b0b.eot?#iefix') format('embedded-opentype'),
+                 url('https://db.onlinewebfonts.com/t/1c1a6b7b0b7b0b0b0b0b0b0b0b0b0b0b.woff2') format('woff2'),
+                 url('https://db.onlinewebfonts.com/t/1c1a6b7b0b7b0b0b0b0b0b0b0b0b0b0b.woff') format('woff'),
+                 url('https://db.onlinewebfonts.com/t/1c1a6b7b0b7b0b0b0b0b0b0b0b0b0b0b.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+</head>
+<body class="preload">
+    <!-- Floating Glassmorphic Menu Bar -->
+    <div id="floating-menu" class="hidden">
+        <div class="menu-container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Meridian Research" class="menu-logo">
+                <div class="logo-text">
+                    <span>Meridian</span>
+                    <span>Research</span>
+                </div>
+            </div>
+            <nav class="menu-links">
+                <a href="#about">About</a>
+                <a href="#vision">Vision</a>
+                <a href="#research">Research</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Background with Golden Glow Effect -->
+    <div class="background-container">
+        <div class="background-glow"></div>
+    </div>
+
+    <!-- Fixed Animation Overlay -->
+    <div id="animation-overlay" class="active">
+        <div id="scroll-animation">
+            <div class="word-container">
+                <div class="word" id="word1">
+                    <span class="word-text">commands</span>
+                    <span class="strikethrough"></span>
+                </div>
+                <div class="word" id="word2">
+                    <span class="word-text">syntax</span>
+                    <span class="strikethrough"></span>
+                </div>
+                <div class="word" id="word3">
+                    <span class="word-text">scripts</span>
+                    <span class="strikethrough"></span>
+                </div>
+                <div class="word" id="word4">
+                    <span class="word-text">programming</span>
+                    <span class="strikethrough"></span>
+                </div>
+                <div class="word" id="final-phrase">
+                    <span class="word-text">machine-machine interaction?</span>
+                </div>
+            </div>
+            <div id="logo-reveal" class="hidden">
+                <img src="logo.png" alt="Meridian Research Logo" class="logo-reveal-img" onerror="this.style.display='none';">
+                <div class="logo-text-reveal">
+                    <span>Meridian</span>
+                    <span>Research</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Section (appears after animations) -->
+    <div id="quote-section" class="hidden">
+        <div class="quote-container">
+            <div class="quote-image">
+                <img src="abstract.png" alt="Abstract design" onerror="this.parentElement.style.display='none';">
+            </div>
+            <blockquote class="hero-quote">
+                "Computer Science, unlike natural sciences doesn't have a set of rules or laws to abide by. Everything can be questioned back and re-defined. There are no limits for innovation."
+            </blockquote>
+        </div>
+    </div>
+
+
+
+    <main id="main-content">
+        <!-- Hero section is now just a spacer since content moved to nav -->
+        <section id="hero" class="hero"></section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About</h2>
+                <div class="content">
+                    <p>Meridian Research is a pioneering AI research lab dedicated to redefining computing through fundamental research.</p>
+                    <div class="founder-info">
+                        <div class="founder-details">
+                            <h3>Founder & CEO</h3>
+                            <p class="founder-name">Kalyan Vedantham</p>
+                        </div>
+                        <div class="social-handles">
+                            <a href="https://x.com/@midx34" target="_blank" class="social-icon" title="X (Twitter)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="https://medium.com/@midx34" target="_blank" class="social-icon" title="Medium">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="section">
+            <div class="container">
+                <h2>Vision</h2>
+                <div class="content">
+                    <p>The vision is to eliminate programming languages as barriers by pioneering a machine-to-machine natural language computing paradigm, enabling seamless, code-free communication between computational systems. This research aims to fundamentally transform human-machine interaction and redefine the future of computing by making natural language the universal interface for all computational processes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <div class="container">
+                <h2>Research</h2>
+                <div class="content">
+                    <p>The research methodology consists of iterative refinement using a multi-agent research assistant for autonomous knowledge synthesis, hardware-software co-design for optimized computation, and systematic exploration of post-programming natural language interfaces. Our approach combines systems-level thinking with breakthrough AI research to eliminate coding as an intermediary layer.</p>
+                    
+                    <div class="research-documents">
+                        <h3>Related Documents:</h3>
+                        <div class="document-links">
+                                                         <a href="Vision Paper.pdf" class="document-link" target="_blank">
+                                 <i class="fas fa-file-alt"></i>
+                                 <div class="document-info">
+                                     <span class="document-title">Vision Paper</span>
+                                     <span class="document-desc">(For academic and technical reviewers)</span>
+                                 </div>
+                             </a>
+                             <a href="Research Methodology.pdf" class="document-link" target="_blank">
+                                 <i class="fas fa-file-alt"></i>
+                                 <div class="document-info">
+                                     <span class="document-title">Research Methodology</span>
+                                     <span class="document-desc">(For research collaborators and advisors)</span>
+                                 </div>
+                             </a>
+                             <a href="Executive Summary.pdf" class="document-link" target="_blank">
+                                 <i class="fas fa-file-alt"></i>
+                                 <div class="document-info">
+                                     <span class="document-title">Executive Summary</span>
+                                     <span class="document-desc">(For investors and stakeholders)</span>
+                                 </div>
+                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- X (Twitter) Logo at End -->
+    <footer id="social-section">
+        <div class="social-divider"></div>
+        <div class="social-label">social</div>
+        <div class="twitter-bottom">
+            <a href="https://x.com/@meridian_arc" target="_blank" aria-label="Follow us on X (Twitter)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#D4AF37"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
