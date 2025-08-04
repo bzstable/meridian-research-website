@@ -997,7 +997,7 @@ body.animation-complete {
 .document-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .document-link {
@@ -1240,6 +1240,29 @@ body.animation-complete {
     
     .logo-text-reveal {
         font-size: 2.5rem;
+    }
+    
+    /* Tablet Research Documents */
+    .research-documents {
+        padding: 2rem;
+    }
+    
+    .document-links {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .document-link {
+        padding: 1.3rem 1.5rem;
+    }
+    
+    /* Tablet Menu */
+    #floating-menu {
+        width: calc(100% - 40px);
+    }
+    
+    #floating-menu .menu-container {
+        padding: 1rem 1.5rem;
     }
     
     /* Navigation responsive */
@@ -2193,5 +2216,62 @@ footer {
     
     .content {
         font-size: 1rem;
+        padding: 1.5rem;
+    }
+    
+    /* Mobile Research Documents */
+    .research-documents {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .research-documents h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .document-links {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .document-link {
+        padding: 1rem 1.2rem;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .document-link i {
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+    }
+    
+    .document-title {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+    
+    .document-desc {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    /* Mobile Menu Adjustments */
+    #floating-menu {
+        width: calc(100% - 20px);
+        top: 10px;
+    }
+    
+    #floating-menu .menu-container {
+        padding: 0.8rem 1rem;
+    }
+    
+    .menu-links {
+        gap: 0.8rem;
+    }
+    
+    .menu-links a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
     }
 }
