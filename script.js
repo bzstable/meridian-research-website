@@ -97,7 +97,7 @@ function showWord(wordIndex) {
     
     setTimeout(() => {
         isAnimating = false;
-    }, 800);
+    }, 400);
 }
 
 function strikeWord(wordIndex) {
@@ -114,7 +114,7 @@ function strikeWord(wordIndex) {
             word.classList.add('hidden');
             word.style.display = 'none';
             isAnimating = false;
-        }, 1000);
+        }, 500);
     } else {
         isAnimating = false;
     }
@@ -140,7 +140,7 @@ function showFinalPhrase() {
     
     setTimeout(() => {
         isAnimating = false;
-    }, 800);
+    }, 400);
 }
 
 function hideFinalPhrase() {
@@ -151,12 +151,12 @@ function hideFinalPhrase() {
         finalPhrase.classList.remove('visible');
         setTimeout(() => {
             finalPhrase.style.display = 'none';
-        }, 800);
+        }, 400);
     }
     
     setTimeout(() => {
         isAnimating = false;
-    }, 800);
+    }, 400);
 }
 
 function showLogo() {
@@ -170,7 +170,7 @@ function showLogo() {
     
     setTimeout(() => {
         isAnimating = false;
-    }, 800);
+    }, 400);
 }
 
 function fadeOutLogo() {
@@ -181,12 +181,12 @@ function fadeOutLogo() {
         logoReveal.classList.remove('visible');
         setTimeout(() => {
             logoReveal.style.display = 'none';
-        }, 800);
+        }, 400);
     }
     
     setTimeout(() => {
         isAnimating = false;
-    }, 800);
+    }, 400);
 }
 
 function showMenuBarAndComplete() {
@@ -209,7 +209,7 @@ function showMenuBarAndComplete() {
     
     setTimeout(() => {
         isAnimating = false;
-    }, 500);
+    }, 300);
 }
 
 function completeAnimations() {
@@ -238,7 +238,7 @@ function completeAnimations() {
             
             // Scroll to top
             window.scrollTo(0, 0);
-        }, 300);
+        }, 200);
     }
     
     // Enable normal scrolling
@@ -253,7 +253,7 @@ function completeAnimations() {
     
     setTimeout(() => {
         isAnimating = false;
-    }, 500);
+    }, 300);
 }
 
 // ===================================
@@ -276,13 +276,13 @@ function startAutomaticAnimationSequence() {
                     // Continue with the rest of the sequence
                     continueAnimationSequence();
                 }
-            }, 2000);
+            }, 1000);
         }
-    }, 1000);
+    }, 500);
 }
 
 function continueAnimationSequence() {
-    const delays = [1500, 2000, 1500, 2000, 1500, 2000, 1500, 3000, 2500, 2000, 2000];
+    const delays = [800, 1000, 800, 1000, 800, 1000, 800, 1500, 1200, 1000, 1000];
     
     function executeNextStep() {
         if (animationComplete || currentStep >= 12) return;
